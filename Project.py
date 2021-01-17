@@ -8,10 +8,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import database as db
 import datetime as dt
-import sqlite3 as sq
-import pyodbc as py
-
-
 
 imageA = cv2.imread('normal_image.jpeg')
 imageB = cv2.imread('hsv_image.jpeg')
@@ -72,41 +68,7 @@ cv2.destroyAllWindows()
 
 
 
-#databse code:
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Oct 13 12:48:47 2020
 
-@author: gayathri
-"""
-       
-def x_insertion(X,Y):
-    try:
-        conn = sq.connect('points.db')
-        cursor = conn.cursor()
-        cmd = """insert into 'X_Y'(X,Y)
-        VALUES(?,?);"""
-        data_tuple = (X, Y)
-        cursor.execute(cmd,data_tuple)
-        conn.commit()
-        cursor.close()
-    except  sq.Error as error:
-        print("error",error)
-       
-
-       
-def maintable_insertion(DATE,TIME):
-    try:
-        conn = sq.connect('points.db')
-        cursor = conn.cursor()
-        cmd = """insert into 'maintable'(DATE,TIME)
-        VALUES(?,?);"""
-        data_tuple = (DATE,TIME)
-        cursor.execute(cmd,data_tuple)
-        conn.commit()
-        cursor.close()
-    except  sq.Error as error:
-        print("error",error)
 
 
         
