@@ -1,9 +1,6 @@
-"""
-Created on Tue Oct 13 12:48:47 2020
+import sqlite3 as sq
+import datetime as dt
 
-@author: gayathri
-"""
-       
 def x_insertion(X,Y):
     try:
         conn = sq.connect('points.db')
